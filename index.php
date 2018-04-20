@@ -26,6 +26,22 @@
     //$usuario->login("root", "$#@*&");
     //echo $usuario;
 
+    // criando um novo usuario
+    //$aluno = new Usuario("Giovani", "teste");
+    //$aluno->insert();
+    //echo $aluno;
+
+    // editando um usuario
+    //    $troca = new Usuario();
+    //    $troca->loadById(5);
+    //    $troca->update("Gustavo", "@#$432342%");
+    //    echo $troca;
+
+
+
+
+
+
 
 
 
