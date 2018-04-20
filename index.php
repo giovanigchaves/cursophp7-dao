@@ -37,11 +37,19 @@
     //    $troca->update("Gustavo", "@#$432342%");
     //    echo $troca;
 
+    // deletando um usuario
+    //$user = new Usuario();
+    //$user->loadById(1);
+    //$user->delete();
+    //echo $user;
 
-
-
-
-
+    // inserindo diversos usuarios e apagando
+    //    $a = new Usuario();
+    //$a->insert("Carlos", "%$#");
+    //$a->insert("Pedro", "6543");
+    //$a->insert("Felix", "789654");
+    //    $a->loadById(12);
+    //    $a->delete();
 
 
 

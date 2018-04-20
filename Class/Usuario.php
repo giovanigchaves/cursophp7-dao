@@ -12,6 +12,14 @@
         private $dessenha;
         private $dtcadastro;
 
+        /**
+         * Usuario constructor.
+         */
+        public function __construct()
+        {
+
+        }
+
         /*
          * Obtem id_usuario
          */
@@ -164,8 +172,10 @@
         /**
          *
          */
-        public function insert()
+        public function insert($login = "", $password = "")
         {
+            $this->setDeslogin($login);
+            $this->setDessenha($password);
 
             $sql = new Sql();
 
@@ -180,35 +190,42 @@
 
         }
 
-        
-        public function update($login, $password){
+        public function update($login, $password)
+        {
 
             $this->setDeslogin($login);
             $this->setDessenha($password);
 
             $sql = new Sql();
-            
+
             $sql->query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE id_usuario = :ID", array(
-                ':LOGIN'=>$this->getDeslogin(),
-                ':PASSWORD'=>$this->getDessenha(),
-                ':ID'=>$this->getIdusuario()
+                ':LOGIN' => $this->getDeslogin(), ':PASSWORD' => $this->getDessenha(), ':ID' => $this->getIdusuario()
             ));
 
         }
-        
-        
-        
-        /**
-         * Usuario constructor.
-         *
-         * @param string $login
-         * @param string $password
-         */
-        public function __construct($login = "", $password = "")
+
+        public function delete($id = "")
         {
 
-            $this->setDeslogin($login);
-            $this->setDessenha($password);
+            $sql = new Sql();
+
+            if(!$id)
+            {
+
+                $sql->query("DELETE FROM tb_usuarios WHERE id_usuario = :ID", array(
+                    ':ID' => $this->getIdusuario()
+                ));
+            } else
+            {
+                $sql->query("DELETE FROM tb_usuarios WHERE id_usuario = :ID", array(
+                    ':ID' => $id
+                ));
+
+            }
+            $this->setIdusuario(NULL);
+            $this->setDeslogin(NULL);
+            $this->setDessenha(NULL);
+            $this->setDtcadastro(new DateTime());
 
         }
 
